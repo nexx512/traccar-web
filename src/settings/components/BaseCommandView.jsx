@@ -96,12 +96,12 @@ const BaseCommandView = ({
             ? option.description
             : t(prefixString('command', option.type))
         }
-        renderOption={(props, option) => (
-          <MenuItem key={option.key} {...props} value={option.key}>
+        renderOption={({ key, ...props }, option) => (
+          <li key={key} {...props}>
             {option.optionType === 'saved'
               ? option.description
               : t(prefixString('command', option.type))}
-          </MenuItem>
+          </li>
         )}
         isOptionEqualToValue={(option, value) => option.key === value.key}
         value={

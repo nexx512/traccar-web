@@ -216,8 +216,8 @@ const PreferencesPage = () => {
                     }
                     return filtered;
                   }}
-                  renderOption={(props, option) => (
-                    <li {...props}>
+                  renderOption={({ key, ...props }, option) => (
+                    <li key={key} {...props}>
                       {option.name ? option.name : positionAttributes[option]?.name || option}
                     </li>
                   )}

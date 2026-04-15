@@ -80,7 +80,7 @@ const AddAttributeDialog = ({ open, onResult, definitions }) => {
           getOptionLabel={(option) =>
             option && typeof option === 'object' ? option.inputValue || option.name : option
           }
-          renderOption={(props, option) => <li {...props}>{option.name || option}</li>}
+          renderOption={({ key, ...props }, option) => <li key={key} {...props}>{option.name || option}</li>}
           renderInput={(params) => <TextField {...params} label={t('sharedAttribute')} />}
         />
         <FormControl fullWidth disabled={key in definitions}>
